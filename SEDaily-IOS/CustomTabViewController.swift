@@ -6,6 +6,13 @@
 //  Copyright © 2017 Koala Tea. All rights reserved.
 //
 
+enum CollectionConfig {
+	case latest
+	case bookmarks
+	case downloaded
+	case search
+}
+
 import UIKit
 import MessageUI
 import PopupDialog
@@ -120,15 +127,19 @@ class CustomTabViewController: UITabBarController, UITabBarControllerDelegate {
         }
         
 //        ForumViewController.audioOverlayDelegate = self.audioOverlayDelegate
+			
+			//            FeedViewController,
+			//            ForumViewController,
+			//            BookmarkCollectionViewController(collectionViewLayout: layout, audioOverlayDelegate: self.audioOverlayDelegate),
+			//            NotificationsTableViewController()
 
         
         self.viewControllers = [
             PodcastPageViewController(audioOverlayDelegate: self.audioOverlayDelegate),
-  
-            FeedViewController,
-            ForumViewController,
-            BookmarkCollectionViewController(collectionViewLayout: layout, audioOverlayDelegate: self.audioOverlayDelegate),
-            NotificationsTableViewController()
+					ProfileViewController(),
+					ForumViewController,
+					BookmarkCollectionViewController(collectionViewLayout: layout, audioOverlayDelegate: self.audioOverlayDelegate),
+					NotificationsTableViewController()
         ]
 
         #if DEBUG
